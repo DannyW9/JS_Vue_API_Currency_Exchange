@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="./css/main.css">
+    <script src="./js/bundle.js"></script>
+    <title>Currency Exchange Calculator</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>Currency Exchange Calculator</h1>
+
+      <input type="number" v-model.number="amount" placeholder="Enter amount:">
+
+      <select v-model="secondCurrency">
+        <option selected disabled>Select currency to convert to:</option>
+        <option v-for="(rate, name) in exchange" :value="rate">{{ name }}</option>
+      </select>
+      <hr>
+      <h2>Conversion from Euros:</h2>
+      <p>{{ convertedFromEur }}</p>
+      <h2>Conversion to Euros:</h2>
+      <p>{{ convertedToEur }}</p>
+      <hr>
+
+      <select v-model="baseCurrency">
+        <option selected disabled>Select currency to convert from:</option>
+        <option v-for="(rate, name) in exchange" :value="name">{{ name }}</option>
+      </select>
+
+    </div>
+
+  </body>
+</html>
